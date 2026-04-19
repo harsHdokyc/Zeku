@@ -27,7 +27,7 @@ const Pricing = () => (
           </Reveal>
           <Reveal delay={100}>
             <p className="text-muted-foreground font-body">
-              No hidden fees. No contracts. Cancel anytime. Start with a free trial class.
+              No hidden fees. No contracts. Cancel anytime. Start with a free trial class. Plans cover students in Classes 10 through 12.
             </p>
           </Reveal>
         </div>

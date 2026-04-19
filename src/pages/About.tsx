@@ -20,7 +20,7 @@ const About = () => (
           </Reveal>
           <Reveal delay={200}>
             <p className="text-muted-foreground leading-relaxed font-body">
-              Founded in 2025, ZEKU is an online learning platform designed exclusively for Class 11 and 12 students studying Physics, Chemistry, and Mathematics. We limit every batch to just 5 students — because that's where real learning happens.
+              Founded in 2025, ZEKU is an online learning platform for students in Classes 10, 11, and 12 focused on Physics, Chemistry, and Mathematics — from board prep in Class 10 to JEE and school exams in Classes 11 and 12. We limit every batch to just 5 students — because that's where real learning happens.
             </p>
           </Reveal>
         </div>

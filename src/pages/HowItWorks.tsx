@@ -2,12 +2,13 @@ import { Layout } from "@/components/Layout";
 import { Section, Reveal } from "@/components/Section";
 import { ArrowRight, Clock, Users, BookOpen, TrendingUp, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import howItWorksHero from "@/assets/howitworks-hero-visual.png";
 
 const steps = [
   {
     step: "01",
-    title: "Choose Your Subject",
-    desc: "Pick from Physics, Chemistry, or Mathematics. Select your class — 11 or 12. Start with one subject and add more later.",
+    title: "subjects we offer",
+    desc: "Pick from Physics, Chemistry, or Mathematics. Select your class — 10, 11, or 12. Start with one subject and add more later.",
     icon: BookOpen,
   },
   {
@@ -54,17 +55,36 @@ const HowItWorks = () => (
   <Layout>
     {/* Hero */}
     <Section>
-      <div className="max-w-3xl mx-auto text-center">
-        <Reveal>
-          <p className="text-sm font-medium text-primary mb-4 tracking-wide uppercase font-body">How It Works</p>
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 tracking-tight font-heading">
-            Your learning <span className="text-primary">journey</span>
-          </h1>
-        </Reveal>
-        <Reveal delay={100}>
-          <p className="text-lg md:text-xl text-muted-foreground font-body max-w-2xl mx-auto">
-            From enrollment to exam day — here's exactly what your ZEKU experience looks like.
-          </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div className="max-w-lg">
+          <Reveal>
+            <p className="text-sm font-medium text-primary mb-3 tracking-wide uppercase font-body">How It Works</p>
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 tracking-tight font-heading">
+              Your learning <span className="text-primary">journey</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={100}>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-8 font-body">
+              From enrollment to exam day — here's exactly what your ZEKU experience looks like. No guesswork, no overwhelm — just a clear, structured path designed to help you master Physics, Chemistry, and Mathematics.
+            </p>
+          </Reveal>
+          <Reveal delay={200}>
+            <p className="text-muted-foreground leading-relaxed font-body">
+              Every step is intentional. From the moment you enroll to your final exam, you're guided by a dedicated teacher in a small batch of 5 — with daily live sessions, regular progress check-ins, and a learning rhythm that actually fits into your school schedule.
+            </p>
+          </Reveal>
+        </div>
+        <Reveal delay={150}>
+          <div className="flex justify-center md:justify-end">
+            <img
+              src={howItWorksHero}
+              alt="3D pathway with milestone nodes representing the ZEKU learning journey"
+              width={420}
+              height={420}
+              loading="lazy"
+              className="w-full max-w-[420px] h-auto"
+            />
+          </div>
         </Reveal>
       </div>
     </Section>

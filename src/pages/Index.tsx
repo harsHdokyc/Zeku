@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Section, Reveal } from "@/components/Section";
-import { Users, Clock, Monitor, BookOpen, ArrowRight, Star, CheckCircle2, ChevronDown } from "lucide-react";
+import { Users, Clock, Monitor, BookOpen, ArrowRight, Star, ChevronDown, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
 import heroVisual from "@/assets/hero-visual.png";
 import smallBatchVisual from "@/assets/small-batch-visual.png";
@@ -27,7 +27,7 @@ const Hero = () => (
           </Reveal>
           <Reveal delay={200}>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-md mb-10 font-body">
-              Affordable. Focused. Powerful learning for Class 11–12 students in Physics, Chemistry & Mathematics.
+              Affordable. Focused. Powerful learning for Classes 10–12 in Physics, Chemistry & Mathematics.
             </p>
           </Reveal>
           <Reveal delay={300}>
@@ -77,9 +77,9 @@ const Problem = () => (
     </Reveal>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children">
       {[
-        { title: "Large Batches", desc: "50–100 students crammed into a single class. No space for questions." },
+        { title: "Large Batches", desc: "15-30 students crammed into a single class. No space for questions." },
         { title: "Zero Attention", desc: "Teachers can't track individual progress. Students fall behind silently." },
-        { title: "Overpriced", desc: "₹50K–₹2L per year for coaching that doesn't deliver personal attention." },
+        { title: "Overpriced", desc: "₹40K–₹50k per year for coaching that doesn't deliver personal attention." },
       ].map((item) => (
         <Reveal key={item.title}>
           <div className="rounded-2xl border border-border bg-card p-8 h-full group hover:border-primary/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
@@ -198,7 +198,7 @@ const HowItWorksPreview = () => (
         </Reveal>
         <div className="space-y-6 stagger-children">
           {[
-            { step: "01", title: "Choose Your Subject", desc: "Physics, Chemistry, or Mathematics." },
+            { step: "01", title: "subjects we offer", desc: "Physics, Chemistry, or Mathematics — for Class 10, 11, or 12." },
             { step: "02", title: "Get Matched", desc: "We place you in a batch of just 5." },
             { step: "03", title: "Attend Daily", desc: "1-hour focused sessions online." },
             { step: "04", title: "Excel", desc: "Build understanding, see results." },
@@ -231,70 +231,123 @@ const HowItWorksPreview = () => (
   </Section>
 );
 
+const pricingFeatures = [
+  "1 subject of your choice",
+  "5 Students Per Class",
+  "Daily 1-hour live class",
+  "Doubt support after class",
+  "Monthly progress summary",
+  "100% Online",
+] as const;
+
 const PricingPreview = () => (
   <Section className="bg-surface-sunken">
-    <Reveal>
-      <p className="text-sm font-medium text-primary mb-3 tracking-wide uppercase font-body">Pricing</p>
-      <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight font-heading">
-        Transparent pricing, no surprises
-      </h2>
-      <p className="text-muted-foreground max-w-xl mb-16 font-body">
-        Premium education shouldn't break the bank.
-      </p>
-    </Reveal>
-    <div className="max-w-2xl mx-auto">
-      {[
-        {  price: "₹2,999", period: "/month", desc: "Perfect for trying ZEKU with one subject.", features: ["1 subject of your choice", "5 Students Per Class", "Daily 1-hour live class", "Doubt support after class", "Monthly progress summary", "100% Online"], popular: true },
-      ].map((plan) => (
-        <Reveal key={plan.price}>
-          <div className={`relative rounded-3xl border-2 p-10 md:p-12 bg-gradient-to-br from-card to-card/50 backdrop-blur-sm ${plan.popular ? "border-primary ring-4 ring-primary/20 shadow-2xl shadow-primary/10" : "border-border bg-card"} group hover:-translate-y-2 transition-all duration-500`}>
-            {plan.popular && (
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                <span className="inline-flex items-center rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground font-body shadow-lg">
-                  ✨ Most Popular Choice
-                </span>
-              </div>
-            )}
-            
-            <div className="text-center mb-12">
-              <div className="mb-6">
-                <span className="text-6xl md:text-7xl font-bold text-foreground font-heading bg-gradient-to-r from-foreground to-primary/80 bg-clip-text text-transparent">
-                  {plan.price}
-                </span>
-                <span className="text-xl text-muted-foreground font-body ml-2">{plan.period}</span>
-              </div>
-              <p className="text-lg text-muted-foreground font-body max-w-md mx-auto">{plan.desc}</p>
-            </div>
-            
-            <div className="space-y-4 mb-12">
-              {plan.features.map((f) => (
-                <div key={f} className="flex items-center gap-4 text-base text-foreground font-body">
-                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 shrink-0">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                  </div>
-                  <span>{f}</span>
-                </div>
-              ))}
-            </div>
-            
-            <div className="text-center">
-              <Link
-                to="/contact"
-                className={`inline-flex h-14 px-8 items-center justify-center rounded-xl text-lg font-semibold transition-all duration-300 font-body ${
-                  plan.popular
-                    ? "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/25 hover:scale-105"
-                    : "border border-border bg-background text-foreground hover:bg-secondary"
-                }`}
-              >
-                Start Your Learning Journey
-              </Link>
-              <p className="text-sm text-muted-foreground mt-4 font-body">
-                No contracts. Cancel anytime. Free trial class available.
-              </p>
-            </div>
+    <div className="text-center max-w-2xl mx-auto mb-14 md:mb-16">
+      <Reveal>
+        <p className="text-sm font-medium text-primary mb-3 tracking-wide uppercase font-body">Pricing</p>
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight font-heading">
+          Plans that match your timeline
+        </h2>
+      </Reveal>
+      <Reveal delay={80}>
+        <p className="text-muted-foreground font-body">
+          Pay monthly on the 6-month plan, or lock in a full year at our best rate. Free trial class before you commit.
+        </p>
+      </Reveal>
+    </div>
+
+    <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+      <Reveal>
+        <div className="relative flex h-full flex-col rounded-3xl border border-border bg-card p-8 md:p-10 shadow-sm transition-all duration-300 hover:border-primary/25 hover:shadow-lg hover:shadow-primary/5">
+          <h3 className="mb-6 text-xl font-bold text-foreground font-heading">
+            6-Month Plan <span className="text-muted-foreground font-semibold">(Regular)</span>
+          </h3>
+
+          <div className="mb-8">
+            <p className="flex flex-wrap items-baseline gap-1">
+              <span className="text-4xl font-bold tracking-tight text-foreground font-heading md:text-5xl">₹3,000</span>
+              <span className="text-lg text-muted-foreground font-body">/month</span>
+            </p>
           </div>
-        </Reveal>
-      ))}
+
+          <dl className="space-y-4 border-t border-border pt-6 text-sm font-body">
+            <div className="flex items-baseline justify-between gap-4">
+              <dt className="text-muted-foreground">Total for 6 months</dt>
+              <dd className="text-right text-base font-semibold text-foreground tabular-nums">₹18,000</dd>
+            </div>
+            <div className="flex items-baseline justify-between gap-4 pt-4 border-t border-border/80">
+              <dt className="text-muted-foreground">1 year (same plan)</dt>
+              <dd className="text-right text-base font-semibold text-foreground tabular-nums">₹36,000</dd>
+            </div>
+          </dl>
+
+          <ul className="mt-8 space-y-3">
+            {pricingFeatures.map((f) => (
+              <li key={f} className="flex items-start gap-3 text-sm text-foreground font-body">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10">
+                  <CheckCircle2 className="h-4 w-4 text-primary" />
+                </span>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-auto pt-8">
+            <Link
+              to="/contact"
+              className="inline-flex h-12 w-full items-center justify-center rounded-xl border border-border bg-background text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
+            >
+              Get started
+            </Link>
+          </div>
+        </div>
+      </Reveal>
+
+      <Reveal delay={100}>
+        <div className="relative flex h-full flex-col rounded-3xl border-2 border-primary bg-gradient-to-br from-card to-card/80 p-8 md:p-10 shadow-xl shadow-primary/10 ring-4 ring-primary/15 transition-all duration-300 hover:ring-primary/25">
+          <h3 className="mb-6 text-xl font-bold text-foreground font-heading">
+            1-Year Plan <span className="text-primary font-semibold">(Best Value)</span>
+          </h3>
+
+          <div className="mb-8">
+            <p className="flex flex-wrap items-baseline gap-1">
+              <span className="text-4xl font-bold tracking-tight text-foreground font-heading md:text-5xl">₹140</span>
+              <span className="text-lg text-muted-foreground font-body">/hour</span>
+            </p>
+          </div>
+
+          <dl className="space-y-4 border-t border-primary/20 pt-6 text-sm font-body">
+            <div className="flex items-baseline justify-between gap-4">
+              <dt className="text-muted-foreground">Total for 1 year</dt>
+              <dd className="text-right text-base font-semibold text-foreground tabular-nums">₹33,000</dd>
+            </div>
+            <div className="rounded-xl bg-primary/10 px-4 py-3 text-center">
+              <p className="text-sm font-semibold text-primary font-heading">Save ₹3,000 per year</p>
+              <p className="mt-0.5 text-xs text-muted-foreground">vs the 6-month plan over 12 months (₹36,000)</p>
+            </div>
+          </dl>
+
+          <ul className="mt-8 space-y-3">
+            {pricingFeatures.map((f) => (
+              <li key={f} className="flex items-start gap-3 text-sm text-foreground font-body">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10">
+                  <CheckCircle2 className="h-4 w-4 text-primary" />
+                </span>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-auto pt-8">
+            <Link
+              to="/contact"
+              className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-primary text-sm font-semibold text-primary-foreground shadow-md transition-all hover:bg-primary/90 hover:shadow-lg"
+            >
+              Secure the annual rate
+            </Link>
+          </div>
+        </div>
+      </Reveal>
     </div>
   </Section>
 );
@@ -309,9 +362,9 @@ const Trust = () => (
     </Reveal>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children">
       {[
+        { quote: "I'm in Class 10 and finally feel ahead in Science and Math instead of scrambling before exams.", name: "Riya N.", detail: "Class 10, Mathematics" },
+        { quote: "Finally, a platform that doesn't feel like a factory. My daughter actually looks forward to classes.", name: "Meera P.", detail: "Parent, Class 11" },
         { quote: "ZEKU changed how I study Physics. The small batch means the teacher actually knows where I'm stuck.", name: "Arjun S.", detail: "Class 12, Physics" },
-        { quote: "Finally, a platform that doesn't feel like a factory. My daughter actually looks forward to classes.", name: "Meera P.", detail: "Parent" },
-        { quote: "The daily structure helped me build consistency. My marks improved from 65% to 89% in one term.", name: "Priya K.", detail: "Class 11, Mathematics" },
       ].map((t) => (
         <Reveal key={t.name}>
           <div className="rounded-2xl border border-border bg-card p-8 h-full flex flex-col group hover:border-primary/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
@@ -333,12 +386,11 @@ const Trust = () => (
 );
 
 const faqs = [
-  { q: "What subjects does ZEKU offer?", a: "We currently offer Physics, Chemistry, and Mathematics for Class 11 and Class 12 students." },
+  { q: "What subjects does ZEKU offer?", a: "We offer Physics, Chemistry, and Mathematics for students in Classes 10 through 12 (10th, 11th, and 12th grades)." },
   { q: "How many students are in each batch?", a: "Every batch is capped at exactly 5 students. This ensures each student gets personal attention and can ask questions freely." },
   { q: "How long is each class?", a: "Each class is 1 hour long and runs daily (Monday–Saturday). The sessions are designed to be focused and distraction-free." },
   { q: "Can I try before committing?", a: "Absolutely. We offer a free trial class so you can experience our teaching style and batch format before enrolling." },
   { q: "What platform do you use for classes?", a: "We conduct live classes on Zoom/Google Meet. All you need is a stable internet connection and a device with a screen." },
-  { q: "Can I switch subjects or plans later?", a: "Yes. You can upgrade, downgrade, or switch subjects at the start of any new month. No lock-in contracts." },
   { q: "How do I track my child's progress?", a: "You'll receive monthly progress reports to track your child's learning journey and performance." },
 ];
 

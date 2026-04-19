@@ -30,7 +30,10 @@ const Contact = () => {
               <div className="space-y-6">
                 {[
                   { title: "Free Trial Class", desc: "Try before you commit. No payment needed." },
-                  { title: "No Long-Term Contracts", desc: "Month-to-month plans. Cancel anytime." },
+                  {
+                    title: "Expert tutors, not overcrowded halls",
+                    desc: "Dedicated educators trained in PCM — clear explanations, patient doubt support, and teaching that adapts to how your child learns.",
+                  },
                   { title: "Quick Response", desc: "We'll reach out within 24 hours." },
                 ].map((item) => (
                   <div key={item.title} className="flex items-start gap-3">
@@ -73,17 +76,17 @@ const Contact = () => {
                     <label className="block text-sm font-medium text-foreground mb-1.5 font-heading">Class</label>
                     <select required className="w-full h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow">
                       <option value="">Select</option>
+                      <option value="10">Class 10</option>
                       <option value="11">Class 11</option>
                       <option value="12">Class 12</option>
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-1.5 font-heading">Subject</label>
+                    <label className="block text-sm font-medium text-foreground mb-1.5 font-heading">Plan</label>
                     <select required className="w-full h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow">
                       <option value="">Select</option>
-                      <option value="physics">Physics</option>
-                      <option value="chemistry">Chemistry</option>
-                      <option value="mathematics">Mathematics</option>
+                      <option value="6-month">6 months</option>
+                      <option value="1-year">1 year</option>
                     </select>
                   </div>
                 </div>
