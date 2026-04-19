@@ -8,7 +8,7 @@ const steps = [
   {
     step: "01",
     title: "subjects we offer",
-    desc: "Pick from Physics, Chemistry, or Mathematics. Select your class — 10, 11, or 12. Start with one subject and add more later.",
+    desc: "Pick from Physics, Chemistry, or Mathematics. Select your class: 10, 11, or 12. Start with one subject and add more later.",
     icon: BookOpen,
   },
   {
@@ -44,7 +44,7 @@ const classStructure = [
 ];
 
 const teachingPoints = [
-  "Concept-first approach — we build from fundamentals",
+  "Concept-first approach, we build from fundamentals",
   "Interactive discussions, not one-way lectures",
   "Real-world examples to make abstract ideas stick",
   "Adaptive pacing based on student understanding",
@@ -65,12 +65,12 @@ const HowItWorks = () => (
           </Reveal>
           <Reveal delay={100}>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8 font-body">
-              From enrollment to exam day — here's exactly what your ZEKU experience looks like. No guesswork, no overwhelm — just a clear, structured path designed to help you master Physics, Chemistry, and Mathematics.
+              From enrollment to exam day, here's exactly what your ZEKU experience looks like. No guesswork, no overwhelm, just a clear, structured path designed to help you master Physics, Chemistry, and Mathematics.
             </p>
           </Reveal>
           <Reveal delay={200}>
             <p className="text-muted-foreground leading-relaxed font-body">
-              Every step is intentional. From the moment you enroll to your final exam, you're guided by a dedicated teacher in a small batch of 5 — with daily live sessions, regular progress check-ins, and a learning rhythm that actually fits into your school schedule.
+              Every step is intentional. From the moment you enroll to your final exam, you're guided by a dedicated teacher in a small batch of 5, with daily live sessions, regular progress check-ins, and a learning rhythm that actually fits into your school schedule.
             </p>
           </Reveal>
         </div>
@@ -89,7 +89,7 @@ const HowItWorks = () => (
       </div>
     </Section>
 
-    {/* Steps — Alternating Cards */}
+    {/* Steps: alternating cards */}
     <Section className="bg-surface-sunken">
       <div className="max-w-4xl mx-auto">
         <Reveal>
@@ -130,7 +130,7 @@ const HowItWorks = () => (
       </div>
     </Section>
 
-    {/* Class Structure + Teaching Style — Bento Layout */}
+    {/* Class structure + teaching style (bento layout) */}
     <Section>
       <div className="max-w-5xl mx-auto">
         <Reveal>
@@ -141,7 +141,7 @@ const HowItWorks = () => (
         </Reveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-          {/* Class Structure — Takes 3 cols */}
+          {/* Class structure: 3 cols */}
           <Reveal className="lg:col-span-3">
             <div className="rounded-2xl border border-border bg-card p-8 h-full hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
               <div className="flex items-center gap-3 mb-8">
@@ -168,7 +168,7 @@ const HowItWorks = () => (
             </div>
           </Reveal>
 
-          {/* Teaching Style — Takes 2 cols */}
+          {/* Teaching style: 2 cols */}
           <Reveal delay={100} className="lg:col-span-2">
             <div className="rounded-2xl border border-border bg-card p-8 h-full hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
               <div className="flex items-center gap-3 mb-8">

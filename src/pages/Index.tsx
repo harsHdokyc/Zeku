@@ -16,7 +16,7 @@ const Hero = () => (
           <Reveal>
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-muted-foreground mb-8">
               <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              Now enrolling for 2026–27
+              Now enrolling for 2026-27
             </div>
           </Reveal>
           <Reveal delay={100}>
@@ -27,7 +27,7 @@ const Hero = () => (
           </Reveal>
           <Reveal delay={200}>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-md mb-10 font-body">
-              Affordable. Focused. Powerful learning for Classes 10–12 in Physics, Chemistry & Mathematics.
+              Affordable. Focused. Powerful learning for Classes 10 to 12 in Physics, Chemistry & Mathematics.
             </p>
           </Reveal>
           <Reveal delay={300}>
@@ -79,7 +79,7 @@ const Problem = () => (
       {[
         { title: "Large Batches", desc: "15-30 students crammed into a single class. No space for questions." },
         { title: "Zero Attention", desc: "Teachers can't track individual progress. Students fall behind silently." },
-        { title: "Overpriced", desc: "₹40K–₹50k per year for coaching that doesn't deliver personal attention." },
+        { title: "Overpriced", desc: "₹40k to ₹50k per year for coaching that doesn't deliver personal attention." },
       ].map((item) => (
         <Reveal key={item.title}>
           <div className="rounded-2xl border border-border bg-card p-8 h-full group hover:border-primary/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
@@ -198,7 +198,7 @@ const HowItWorksPreview = () => (
         </Reveal>
         <div className="space-y-6 stagger-children">
           {[
-            { step: "01", title: "subjects we offer", desc: "Physics, Chemistry, or Mathematics — for Class 10, 11, or 12." },
+            { step: "01", title: "subjects we offer", desc: "Physics, Chemistry, or Mathematics from Classes 10 to 12." },
             { step: "02", title: "Get Matched", desc: "We place you in a batch of just 5." },
             { step: "03", title: "Attend Daily", desc: "1-hour focused sessions online." },
             { step: "04", title: "Excel", desc: "Build understanding, see results." },
@@ -388,7 +388,7 @@ const Trust = () => (
 const faqs = [
   { q: "What subjects does ZEKU offer?", a: "We offer Physics, Chemistry, and Mathematics for students in Classes 10 through 12 (10th, 11th, and 12th grades)." },
   { q: "How many students are in each batch?", a: "Every batch is capped at exactly 5 students. This ensures each student gets personal attention and can ask questions freely." },
-  { q: "How long is each class?", a: "Each class is 1 hour long and runs daily (Monday–Saturday). The sessions are designed to be focused and distraction-free." },
+  { q: "How long is each class?", a: "Each class is 1 hour long and runs daily (Monday to Saturday). The sessions are designed to be focused and distraction-free." },
   { q: "Can I try before committing?", a: "Absolutely. We offer a free trial class so you can experience our teaching style and batch format before enrolling." },
   { q: "What platform do you use for classes?", a: "We conduct live classes on Zoom/Google Meet. All you need is a stable internet connection and a device with a screen." },
   { q: "How do I track my child's progress?", a: "You'll receive monthly progress reports to track your child's learning journey and performance." },

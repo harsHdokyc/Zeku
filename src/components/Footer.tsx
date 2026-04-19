@@ -7,7 +7,7 @@ export const Footer = () => (
         <div className="md:col-span-1">
           <p className="text-xl font-bold tracking-tight text-foreground mb-3">ZEKU</p>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Premium online learning for Classes 10–12. Small batches, big results.
+            Premium online learning for Classes 10 to 12. Small batches, big results.
           </p>
         </div>
         <div>

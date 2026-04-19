@@ -20,7 +20,7 @@ const About = () => (
           </Reveal>
           <Reveal delay={200}>
             <p className="text-muted-foreground leading-relaxed font-body">
-              Founded in 2025, ZEKU is an online learning platform for students in Classes 10, 11, and 12 focused on Physics, Chemistry, and Mathematics — from board prep in Class 10 to JEE and school exams in Classes 11 and 12. We limit every batch to just 5 students — because that's where real learning happens.
+              Founded in 2025, ZEKU is an online learning platform for students in Classes 10, 11, and 12 focused on Physics, Chemistry, and Mathematics, from board prep in Class 10 to JEE and school exams in Classes 11 and 12. We limit every batch to just 5 students, because that's where real learning happens.
             </p>
           </Reveal>
         </div>
@@ -48,7 +48,7 @@ const About = () => (
               Make premium education accessible
             </h2>
             <p className="text-muted-foreground leading-relaxed font-body">
-              We believe every student deserves the kind of attention that was previously reserved for expensive private tutoring. ZEKU bridges that gap — delivering personalized, concept-driven teaching at a fraction of the cost.
+              We believe every student deserves the kind of attention that was previously reserved for expensive private tutoring. ZEKU bridges that gap with personalized, concept-driven teaching at a fraction of the cost.
             </p>
           </div>
         </Reveal>
@@ -59,7 +59,7 @@ const About = () => (
               Understanding over memorization
             </h2>
             <p className="text-muted-foreground leading-relaxed font-body">
-              We don't race through the syllabus. Our teachers take the time to build deep conceptual understanding, ensuring students don't just pass exams — they truly learn the subject.
+              We don't race through the syllabus. Our teachers take the time to build deep conceptual understanding, ensuring students don't just pass exams. They truly learn the subject.
             </p>
           </div>
         </Reveal>
@@ -75,7 +75,7 @@ const About = () => (
       </Reveal>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children">
         {[
-          { title: "Student First", desc: "Every decision — from batch size to schedule — is made with the student's learning in mind.", num: "01" },
+          { title: "Student First", desc: "Every decision, from batch size to schedule, is made with the student's learning in mind.", num: "01" },
           { title: "Radical Honesty", desc: "No false promises. We tell students exactly what to expect and deliver on it.", num: "02" },
           { title: "Continuous Improvement", desc: "We obsess over making every class better than the last. Feedback is our fuel.", num: "03" },
         ].map((v) => (

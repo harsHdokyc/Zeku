@@ -23,7 +23,7 @@ const Contact = () => {
             </Reveal>
             <Reveal delay={100}>
               <p className="text-muted-foreground leading-relaxed mb-10 font-body">
-                Batches fill up fast — we only take 5 students per batch. Fill out the form and we'll get back to you within 24 hours with available slots.
+                Batches fill up fast. We only take 5 students per batch. Fill out the form and we'll get back to you within 24 hours with available slots.
               </p>
             </Reveal>
             <Reveal delay={200}>
@@ -32,7 +32,7 @@ const Contact = () => {
                   { title: "Free Trial Class", desc: "Try before you commit. No payment needed." },
                   {
                     title: "Expert tutors, not overcrowded halls",
-                    desc: "Dedicated educators trained in PCM — clear explanations, patient doubt support, and teaching that adapts to how your child learns.",
+                    desc: "Dedicated educators trained in PCM, clear explanations, patient doubt support, and teaching that adapts to how your child learns.",
                   },
                   { title: "Quick Response", desc: "We'll reach out within 24 hours." },
                 ].map((item) => (
