@@ -39,12 +39,12 @@ const Hero = () => (
                 Start Learning
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
-              <Link
+              {/* <Link
                 to="/pricing"
                 className="inline-flex h-12 items-center justify-center rounded-lg border border-border bg-background px-6 text-sm font-medium text-foreground hover:bg-secondary transition-colors"
               >
                 View Plans
-              </Link>
+              </Link> */}
             </div>
           </Reveal>
         </div>
@@ -242,43 +242,56 @@ const PricingPreview = () => (
         Premium education shouldn't break the bank.
       </p>
     </Reveal>
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children">
+    <div className="max-w-2xl mx-auto">
       {[
-        { name: "Starter", price: "₹2,999", period: "/month", desc: "1 subject, perfect to try ZEKU", features: ["1 subject", "5-student batch", "Daily 1-hour class", "Doubt support"] },
-        { name: "Standard", price: "₹4,999", period: "/month", desc: "Most popular for serious students", features: ["2 subjects", "5-student batch", "Daily 1-hour class", "Priority doubt support", "Monthly progress reports"], popular: true },
-        { name: "Complete", price: "₹6,999", period: "/month", desc: "All 3 subjects, full coverage", features: ["All 3 subjects", "5-student batch", "Daily 1-hour class", "Priority doubt support", "Weekly progress reports", "Parent dashboard"] },
+        {  price: "₹2,999", period: "/month", desc: "Perfect for trying ZEKU with one subject.", features: ["1 subject of your choice", "5 Students Per Class", "Daily 1-hour live class", "Doubt support after class", "Monthly progress summary", "100% Online"], popular: true },
       ].map((plan) => (
-        <Reveal key={plan.name}>
-          <div className={`rounded-2xl border p-8 h-full flex flex-col ${plan.popular ? "border-primary bg-card ring-1 ring-primary/20" : "border-border bg-card"}`}>
+        <Reveal key={plan.price}>
+          <div className={`relative rounded-3xl border-2 p-10 md:p-12 bg-gradient-to-br from-card to-card/50 backdrop-blur-sm ${plan.popular ? "border-primary ring-4 ring-primary/20 shadow-2xl shadow-primary/10" : "border-border bg-card"} group hover:-translate-y-2 transition-all duration-500`}>
             {plan.popular && (
-              <span className="inline-flex self-start items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary mb-4 font-body">
-                Most Popular
-              </span>
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                <span className="inline-flex items-center rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground font-body shadow-lg">
+                  ✨ Most Popular Choice
+                </span>
+              </div>
             )}
-            <h3 className="text-lg font-semibold text-foreground font-heading">{plan.name}</h3>
-            <p className="text-sm text-muted-foreground mt-1 mb-6 font-body">{plan.desc}</p>
-            <div className="mb-6">
-              <span className="text-3xl font-bold text-foreground font-heading">{plan.price}</span>
-              <span className="text-sm text-muted-foreground font-body">{plan.period}</span>
+            
+            <div className="text-center mb-12">
+              <div className="mb-6">
+                <span className="text-6xl md:text-7xl font-bold text-foreground font-heading bg-gradient-to-r from-foreground to-primary/80 bg-clip-text text-transparent">
+                  {plan.price}
+                </span>
+                <span className="text-xl text-muted-foreground font-body ml-2">{plan.period}</span>
+              </div>
+              <p className="text-lg text-muted-foreground font-body max-w-md mx-auto">{plan.desc}</p>
             </div>
-            <ul className="space-y-3 mb-8 flex-1">
+            
+            <div className="space-y-4 mb-12">
               {plan.features.map((f) => (
-                <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground font-body">
-                  <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                  {f}
-                </li>
+                <div key={f} className="flex items-center gap-4 text-base text-foreground font-body">
+                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 shrink-0">
+                    <CheckCircle2 className="h-4 w-4 text-primary" />
+                  </div>
+                  <span>{f}</span>
+                </div>
               ))}
-            </ul>
-            <Link
-              to="/contact"
-              className={`inline-flex h-10 items-center justify-center rounded-lg text-sm font-medium transition-colors font-body ${
-                plan.popular
-                  ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                  : "border border-border bg-background text-foreground hover:bg-secondary"
-              }`}
-            >
-              Get Started
-            </Link>
+            </div>
+            
+            <div className="text-center">
+              <Link
+                to="/contact"
+                className={`inline-flex h-14 px-8 items-center justify-center rounded-xl text-lg font-semibold transition-all duration-300 font-body ${
+                  plan.popular
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/25 hover:scale-105"
+                    : "border border-border bg-background text-foreground hover:bg-secondary"
+                }`}
+              >
+                Start Your Learning Journey
+              </Link>
+              <p className="text-sm text-muted-foreground mt-4 font-body">
+                No contracts. Cancel anytime. Free trial class available.
+              </p>
+            </div>
           </div>
         </Reveal>
       ))}
@@ -326,7 +339,7 @@ const faqs = [
   { q: "Can I try before committing?", a: "Absolutely. We offer a free trial class so you can experience our teaching style and batch format before enrolling." },
   { q: "What platform do you use for classes?", a: "We conduct live classes on Zoom/Google Meet. All you need is a stable internet connection and a device with a screen." },
   { q: "Can I switch subjects or plans later?", a: "Yes. You can upgrade, downgrade, or switch subjects at the start of any new month. No lock-in contracts." },
-  { q: "How do I track my child's progress?", a: "Depending on your plan, you'll receive monthly or weekly progress reports. Our Complete plan also includes a parent dashboard for real-time tracking." },
+  { q: "How do I track my child's progress?", a: "You'll receive monthly progress reports to track your child's learning journey and performance." },
 ];
 
 const FAQ = () => {
