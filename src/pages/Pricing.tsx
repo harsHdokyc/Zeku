@@ -13,7 +13,7 @@ const Pricing = () => {
       features: [
         "Physics, Chemistry and Maths",
         "5 Students Per Class",
-        "Daily 1-hour live class",
+        "20 Hours of Live Classes",
         "Doubt support after class",
         "Monthly progress summary",
         "100% Online",
@@ -25,7 +25,7 @@ const Pricing = () => {
           price: "Rs.3,000",
           totalPrice: "Rs.18,000",
           yearlyPrice: "Rs.36,000",
-          period: "/month",
+          period: "/month (Rs.150/hr)",
           popular: false,
         },
         {
@@ -33,7 +33,7 @@ const Pricing = () => {
           label: "Best Value",
           price: "Rs.2750",
           totalPrice: "Rs.33,000",
-          period: "/month",
+          period: "/month (Rs.140/hr)",
           popular: true,
           savings: "Save Rs.3,000 per year",
           savingsDesc: "vs the 6-month plan over 12 months (Rs.36,000)",
@@ -203,11 +203,11 @@ const Pricing = () => {
               {selectedClass === "11-12" ? (
                 <tbody>
                   {[
-                    ["Monthly Price", "Rs.3,000", "Rs.2,750"],
+                    ["Monthly Price", "Rs.3,000 (Rs.150/hr)", "Rs.2,750 (Rs.140/hr)"],
                     ["Total Cost", "Rs.18,000 (6 months)", "Rs.33,000 (1 year)"],
                     ["Subjects", "Physics, Chemistry, Maths", "Physics, Chemistry, Maths"],
                     ["Batch Size", "5 students", "5 students"],
-                    ["Daily Classes", "1 hour live class", "1 hour live class"],
+                    ["Live Classes", "20 Hours Total", "20 Hours Total"],
                     ["Doubt Support", "After class support", "After class support"],
                     ["Progress Reports", "Monthly summary", "Monthly summary"],
                     ["Platform", "100% Online", "100% Online"],
