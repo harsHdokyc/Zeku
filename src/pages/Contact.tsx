@@ -4,9 +4,41 @@ import { Section, Reveal } from "@/components/Section";
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    studentName: "",
+    email: "",
+    phone: "",
+    class: "",
+    plan: "",
+    message: ""
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Create WhatsApp message with all form data
+    const whatsappMessage = `*New Enrollment Request - Zeku Learning Studio*%0A%0A` +
+      `*Student Details:*%0A` +
+      `Name: ${formData.studentName}%0A` +
+      `Email: ${formData.email}%0A` +
+      `Phone: ${formData.phone}%0A` +
+      `Class: ${formData.class}%0A` +
+      `Plan: ${formData.plan}%0A` +
+      `Message: ${formData.message || 'No additional message'}%0A%0A` +
+      `Please contact me to schedule a trial class and discuss available slots.`;
+    
+    // Open WhatsApp with pre-filled message
+    const whatsappUrl = `https://wa.me/918078116842?text=${whatsappMessage}`;
+    window.open(whatsappUrl, '_blank');
+    
     setSubmitted(true);
   };
 
@@ -78,20 +110,50 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="rounded-2xl border border-border bg-card p-8 space-y-5 hover:shadow-lg hover:shadow-primary/5 transition-shadow duration-300">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-1.5 font-heading">Student Name</label>
-                  <input type="text" required className="w-full h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow" placeholder="Enter student's full name" />
+                  <input 
+                    type="text" 
+                    name="studentName"
+                    value={formData.studentName}
+                    onChange={handleInputChange}
+                    required 
+                    className="w-full h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow" 
+                    placeholder="Enter student's full name" 
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-1.5 font-heading">Email</label>
-                  <input type="email" required className="w-full h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow" placeholder="parent@email.com" />
+                  <input 
+                    type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required 
+                    className="w-full h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow" 
+                    placeholder="parent@email.com" 
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-1.5 font-heading">Phone</label>
-                  <input type="tel" required className="w-full h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow" placeholder="+91 73065 16842" />
+                  <input 
+                    type="tel" 
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    required 
+                    className="w-full h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow" 
+                    placeholder="+91 73065 16842" 
+                  />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-1.5 font-heading">Class</label>
-                    <select required className="w-full h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow">
+                    <select 
+                      name="class"
+                      value={formData.class}
+                      onChange={handleInputChange}
+                      required 
+                      className="w-full h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow"
+                    >
                       <option value="">Select</option>
                       <option value="10">Class 10</option>
                       <option value="11">Class 11</option>
@@ -100,7 +162,13 @@ const Contact = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-1.5 font-heading">Plan</label>
-                    <select required className="w-full h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow">
+                    <select 
+                      name="plan"
+                      value={formData.plan}
+                      onChange={handleInputChange}
+                      required 
+                      className="w-full h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow"
+                    >
                       <option value="">Select</option>
                       <option value="6-month">6 months</option>
                       <option value="1-year">1 year</option>
@@ -109,10 +177,17 @@ const Contact = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-1.5 font-heading">Message (optional)</label>
-                  <textarea rows={3} className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none transition-shadow" placeholder="Any questions or preferred time slots?" />
+                  <textarea 
+                    rows={3} 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none transition-shadow" 
+                    placeholder="Any questions or preferred time slots?" 
+                  />
                 </div>
                 <button type="submit" className="w-full h-11 rounded-lg bg-primary text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors">
-                  Secure Your Seat
+                  Secure Your Seat via Whatsapp
                 </button>
               </form>
             )}
