@@ -62,10 +62,10 @@ const Contact = () => {
               <div className="mb-10 rounded-2xl border border-border bg-card/50 px-5 py-4">
                 <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground font-body mb-3">Contact</p>
                 <a
-                  href="mailto:elbin@zeku.in"
+                  href="mailto:support@zeku.in"
                   className="block text-sm font-medium text-foreground hover:text-primary transition-colors"
                 >
-                  elbin@zeku.in
+                  support@zeku.in
                 </a>
                 <a
                   href="tel:+917306516842"

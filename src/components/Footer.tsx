@@ -39,10 +39,10 @@ export const Footer = () => (
           <div className="space-y-3">
             <Link to="/contact" className="block text-sm text-muted-foreground hover:text-foreground transition-colors">Enroll Now</Link>
             <a
-              href="mailto:elbin@zeku.in"
+              href="mailto:support@zeku.in"
               className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              elbin@zeku.in
+              support@zeku.in
             </a>
             <a
               href="tel:+917306516842"
