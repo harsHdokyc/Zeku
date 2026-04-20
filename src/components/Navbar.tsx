@@ -25,7 +25,7 @@ export const Navbar = () => {
             alt="ZEKU Logo"
             className="h-16 w-auto"
           />
-          <span className="text-2xl font-bold text-foreground font-heading">Zeku</span>
+          <span className="text-2xl font-bold text-[#a7399b] font-heading">Zeku</span>
         </Link>
 
         {/* Desktop */}
