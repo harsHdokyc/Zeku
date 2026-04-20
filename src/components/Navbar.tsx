@@ -19,12 +19,13 @@ export const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-lg">
       <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center">
+        <Link to="/" className="flex items-center gap-3">
           <img
             src={zekuLogo}
             alt="ZEKU Logo"
-            className="h-10 w-auto"
+            className="h-16 w-auto"
           />
+          <span className="text-2xl font-bold text-foreground font-heading">Zeku</span>
         </Link>
 
         {/* Desktop */}

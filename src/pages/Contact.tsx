@@ -36,7 +36,7 @@ const Contact = () => {
       `Please contact me to schedule a trial class and discuss available slots.`;
     
     // Open WhatsApp with pre-filled message
-    const whatsappUrl = `https://wa.me/918078116842?text=${whatsappMessage}`;
+    const whatsappUrl = `https://wa.me/917306516842?text=${whatsappMessage}`;
     window.open(whatsappUrl, '_blank');
     
     setSubmitted(true);

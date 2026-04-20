@@ -6,11 +6,14 @@ export const Footer = () => (
     <div className="container">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="md:col-span-1">
-          <img
-            src={zekuLogo}
-            alt="ZEKU Logo"
-            className="h-10 w-auto mb-3"
-          />
+          <div className="flex items-center gap-3 mb-3">
+            <img
+              src={zekuLogo}
+              alt="ZEKU Logo"
+              className="h-16 w-auto"
+            />
+            <span className="text-2xl font-bold text-foreground font-heading">Zeku</span>
+          </div>
           <p className="text-sm text-muted-foreground leading-relaxed">
             Premium online learning for Classes 10 to 12. Small batches, big results.
           </p>
