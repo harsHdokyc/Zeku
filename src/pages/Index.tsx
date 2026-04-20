@@ -232,7 +232,7 @@ const HowItWorksPreview = () => (
 );
 
 const pricingFeatures = [
-  "1 subject of your choice",
+  "Physics, Chemistry and Maths",
   "5 Students Per Class",
   "Daily 1-hour live class",
   "Doubt support after class",

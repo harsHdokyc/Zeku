@@ -30,7 +30,18 @@ export const Footer = () => (
           <p className="text-sm font-medium text-foreground mb-4">Get Started</p>
           <div className="space-y-3">
             <Link to="/contact" className="block text-sm text-muted-foreground hover:text-foreground transition-colors">Enroll Now</Link>
-            <p className="text-sm text-muted-foreground">support@zeku.in</p>
+            <a
+              href="mailto:elbin@zeku.in"
+              className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              elbin@zeku.in
+            </a>
+            <a
+              href="tel:+917306516842"
+              className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              +91 73065 16842
+            </a>
           </div>
         </div>
       </div>

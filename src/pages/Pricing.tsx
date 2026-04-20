@@ -9,7 +9,7 @@ const plans = [
     price: "₹2,999",
     period: "/month",
     desc: "Perfect for trying ZEKU with one subject.",
-    features: ["1 subject of your choice", "5-student batch", "Daily 1-hour live class", "Doubt support after class", "Monthly progress summary"],
+    features: ["Physics, chemisstry and maths", "5-student batch", "Daily 1-hour live class", "Doubt support after class", "Monthly progress summary"],
     popular: true,
   },
 ];

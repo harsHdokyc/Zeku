@@ -22,9 +22,26 @@ const Contact = () => {
               </h1>
             </Reveal>
             <Reveal delay={100}>
-              <p className="text-muted-foreground leading-relaxed mb-10 font-body">
+              <p className="text-muted-foreground leading-relaxed mb-6 font-body">
                 Batches fill up fast. We only take 5 students per batch. Fill out the form and we'll get back to you within 24 hours with available slots.
               </p>
+            </Reveal>
+            <Reveal delay={150}>
+              <div className="mb-10 rounded-2xl border border-border bg-card/50 px-5 py-4">
+                <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground font-body mb-3">Contact</p>
+                <a
+                  href="mailto:elbin@zeku.in"
+                  className="block text-sm font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  elbin@zeku.in
+                </a>
+                <a
+                  href="tel:+917306516842"
+                  className="mt-2 block text-sm font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  +91 73065 16842
+                </a>
+              </div>
             </Reveal>
             <Reveal delay={200}>
               <div className="space-y-6">
@@ -69,7 +86,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-1.5 font-heading">Phone</label>
-                  <input type="tel" required className="w-full h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow" placeholder="+91 98765 43210" />
+                  <input type="tel" required className="w-full h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow" placeholder="+91 73065 16842" />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
