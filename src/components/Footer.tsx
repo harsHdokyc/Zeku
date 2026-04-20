@@ -12,7 +12,7 @@ export const Footer = () => (
               alt="ZEKU Logo"
               className="h-16 w-auto"
             />
-            <span className="text-2xl font-bold text-[#a7399b] font-heading">Zeku</span>
+            <span className="text-2xl font-bold text-[#a7399b] font-heading">ZEKU</span>
           </div>
           <p className="text-sm text-muted-foreground leading-relaxed">
             Premium online learning for Classes 10 to 12. Small batches, big results.
