@@ -2,12 +2,13 @@ import { Link, useLocation } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import zekuLogo from "@/assets/zekuLogo.png";
 
 const links = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/how-it-works", label: "How It Works" },
-  // { to: "/pricing", label: "Pricing" },
+  { to: "/pricing", label: "Pricing" },
   { to: "/contact", label: "Enroll" },
 ];
 
@@ -18,8 +19,12 @@ export const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-lg">
       <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="text-xl font-bold tracking-tight text-foreground">
-          ZEKU
+        <Link to="/" className="flex items-center">
+          <img
+            src={zekuLogo}
+            alt="ZEKU Logo"
+            className="h-10 w-auto"
+          />
         </Link>
 
         {/* Desktop */}

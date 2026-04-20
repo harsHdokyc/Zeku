@@ -1,11 +1,16 @@
 import { Link } from "react-router-dom";
+import zekuLogo from "@/assets/zekuLogo.png";
 
 export const Footer = () => (
   <footer className="border-t border-border bg-background py-16">
     <div className="container">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="md:col-span-1">
-          <p className="text-xl font-bold tracking-tight text-foreground mb-3">ZEKU</p>
+          <img
+            src={zekuLogo}
+            alt="ZEKU Logo"
+            className="h-10 w-auto mb-3"
+          />
           <p className="text-sm text-muted-foreground leading-relaxed">
             Premium online learning for Classes 10 to 12. Small batches, big results.
           </p>

@@ -39,12 +39,12 @@ const Hero = () => (
                 Start Learning
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
-              {/* <Link
+              <Link
                 to="/pricing"
                 className="inline-flex h-12 items-center justify-center rounded-lg border border-border bg-background px-6 text-sm font-medium text-foreground hover:bg-secondary transition-colors"
               >
                 View Plans
-              </Link> */}
+              </Link>
             </div>
           </Reveal>
         </div>
@@ -231,126 +231,173 @@ const HowItWorksPreview = () => (
   </Section>
 );
 
-const pricingFeatures = [
-  "Physics, Chemistry and Maths",
-  "5 Students Per Class",
-  "Daily 1-hour live class",
-  "Doubt support after class",
-  "Monthly progress summary",
-  "100% Online",
-] as const;
+const PricingPreview = () => {
+  const [selectedClass, setSelectedClass] = useState<"11-12" | "10">("11-12");
 
-const PricingPreview = () => (
-  <Section className="bg-surface-sunken">
-    <div className="text-center max-w-2xl mx-auto mb-14 md:mb-16">
-      <Reveal>
-        <p className="text-sm font-medium text-primary mb-3 tracking-wide uppercase font-body">Pricing</p>
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight font-heading">
-          Plans that match your timeline
-        </h2>
-      </Reveal>
-      <Reveal delay={80}>
-        <p className="text-muted-foreground font-body">
-          Pay monthly on the 6-month plan, or lock in a full year at our best rate. Free trial class before you commit.
-        </p>
-      </Reveal>
-    </div>
+  const pricingData = {
+    "11-12": {
+      features: [
+        "Physics, Chemistry and Maths",
+        "5 Students Per Class",
+        "Daily 1-hour live class",
+        "Doubt support after class",
+        "Monthly progress summary",
+        "100% Online",
+      ] as const,
+      plans: [
+        {
+          name: "6-Month Plan",
+          label: "Regular",
+          price: "Rs.3,000",
+          totalPrice: "Rs.18,000",
+          yearlyPrice: "Rs.36,000",
+          period: "/month",
+          popular: false,
+        },
+        {
+          name: "1-Year Plan",
+          label: "Best Value",
+          price: "Rs.2750",
+          totalPrice: "Rs.33,000",
+          period: "/month",
+          popular: true,
+          savings: "Save Rs.3,000 per year",
+          savingsDesc: "vs the 6-month plan over 12 months (Rs.36,000)",
+        },
+      ],
+    },
+    "10": {
+      features: [
+        "Physics, Chemistry, Maths, Biology, English",
+        "5 Students Per Class",
+        "25 Hours of Live Classes",
+        "Weekly Practice & Homework",
+        "Monthly Tests & Performance Tracking",
+        "Maximum 5 Students per Class",
+      ] as const,
+      plans: [
+        {
+          name: "6-Month Plan",
+          label: "Regular",
+          price: "Rs.3,000",
+          totalPrice: "Rs.18,000",
+          yearlyPrice: "Rs.36,000",
+          period: "/month (Rs.120/hr)",
+          popular: false,
+        },
+        {
+          name: "1-Year Plan",
+          label: "Best Value",
+          price: "Rs.2750",
+          totalPrice: "Rs.33,000",
+          period: "/month (Rs.110/hr)",
+          popular: true,
+          savings: "Save Rs.3,000 per year",
+          savingsDesc: "vs the 6-month plan over 12 months (Rs.36,000)",
+        },
+      ],
+    },
+  };
 
-    <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
-      <Reveal>
-        <div className="relative flex h-full flex-col rounded-3xl border border-border bg-card p-8 md:p-10 shadow-sm transition-all duration-300 hover:border-primary/25 hover:shadow-lg hover:shadow-primary/5">
-          <h3 className="mb-6 text-xl font-bold text-foreground font-heading">
-            6-Month Plan <span className="text-muted-foreground font-semibold">(Regular)</span>
-          </h3>
+  const currentPricing = pricingData[selectedClass];
 
-          <div className="mb-8">
-            <p className="flex flex-wrap items-baseline gap-1">
-              <span className="text-4xl font-bold tracking-tight text-foreground font-heading md:text-5xl">₹3,000</span>
-              <span className="text-lg text-muted-foreground font-body">/month</span>
-            </p>
-          </div>
-
-          <dl className="space-y-4 border-t border-border pt-6 text-sm font-body">
-            <div className="flex items-baseline justify-between gap-4">
-              <dt className="text-muted-foreground">Total for 6 months</dt>
-              <dd className="text-right text-base font-semibold text-foreground tabular-nums">₹18,000</dd>
+  return (
+    <Section className="bg-surface-sunken">
+      <div className="text-center max-w-2xl mx-auto mb-14 md:mb-16">
+        <Reveal>
+          <p className="text-sm font-medium text-primary mb-3 tracking-wide uppercase font-body">Pricing</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight font-heading">
+            Plans that match your timeline
+          </h2>
+        </Reveal>
+        <Reveal delay={80}>
+          <p className="text-muted-foreground font-body mb-6">
+            Pay monthly on the 6-month plan, or lock in a full year at our best rate. Free trial class before you commit.
+          </p>
+          <div className="flex justify-center">
+            <div className="relative inline-flex">
+              <select
+                value={selectedClass}
+                onChange={(e) => setSelectedClass(e.target.value as "11-12" | "10")}
+                className="appearance-none bg-background border border-border rounded-lg px-4 py-2 pr-10 text-sm font-medium text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary cursor-pointer"
+              >
+                <option value="11-12">Class 11-12</option>
+                <option value="10">Class 10</option>
+              </select>
+              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
             </div>
-            <div className="flex items-baseline justify-between gap-4 pt-4 border-t border-border/80">
-              <dt className="text-muted-foreground">1 year (same plan)</dt>
-              <dd className="text-right text-base font-semibold text-foreground tabular-nums">₹36,000</dd>
-            </div>
-          </dl>
-
-          <ul className="mt-8 space-y-3">
-            {pricingFeatures.map((f) => (
-              <li key={f} className="flex items-start gap-3 text-sm text-foreground font-body">
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                  <CheckCircle2 className="h-4 w-4 text-primary" />
-                </span>
-                <span>{f}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-auto pt-8">
-            <Link
-              to="/contact"
-              className="inline-flex h-12 w-full items-center justify-center rounded-xl border border-border bg-background text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
-            >
-              Get started
-            </Link>
           </div>
-        </div>
-      </Reveal>
+        </Reveal>
+      </div>
 
-      <Reveal delay={100}>
-        <div className="relative flex h-full flex-col rounded-3xl border-2 border-primary bg-gradient-to-br from-card to-card/80 p-8 md:p-10 shadow-xl shadow-primary/10 ring-4 ring-primary/15 transition-all duration-300 hover:ring-primary/25">
-          <h3 className="mb-6 text-xl font-bold text-foreground font-heading">
-            1-Year Plan <span className="text-primary font-semibold">(Best Value)</span>
-          </h3>
+      <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+        {currentPricing.plans.map((plan, index) => (
+          <Reveal key={plan.name} delay={index * 100}>
+            <div className={`relative flex h-full flex-col rounded-3xl border ${
+              plan.popular 
+                ? "border-2 border-primary bg-gradient-to-br from-card to-card/80 shadow-xl shadow-primary/10 ring-4 ring-primary/15 hover:ring-primary/25" 
+                : "border border-border bg-card shadow-sm hover:border-primary/25 hover:shadow-lg hover:shadow-primary/5"
+            } p-8 md:p-10 transition-all duration-300`}>
+              <h3 className="mb-6 text-xl font-bold text-foreground font-heading">
+                {plan.name} <span className={`${plan.popular ? "text-primary" : "text-muted-foreground"} font-semibold`}>({plan.label})</span>
+              </h3>
 
-          <div className="mb-8">
-            <p className="flex flex-wrap items-baseline gap-1">
-              <span className="text-4xl font-bold tracking-tight text-foreground font-heading md:text-5xl">₹140</span>
-              <span className="text-lg text-muted-foreground font-body">/hour</span>
-            </p>
-          </div>
+              <div className="mb-8">
+                <p className="flex flex-wrap items-baseline gap-1">
+                  <span className="text-4xl font-bold tracking-tight text-foreground font-heading md:text-5xl">{plan.price}</span>
+                  <span className="text-lg text-muted-foreground font-body">{plan.period}</span>
+                </p>
+              </div>
 
-          <dl className="space-y-4 border-t border-primary/20 pt-6 text-sm font-body">
-            <div className="flex items-baseline justify-between gap-4">
-              <dt className="text-muted-foreground">Total for 1 year</dt>
-              <dd className="text-right text-base font-semibold text-foreground tabular-nums">₹33,000</dd>
+              <dl className="space-y-4 border-t border-border pt-6 text-sm font-body">
+                <div className="flex items-baseline justify-between gap-4">
+                  <dt className="text-muted-foreground">Total for {plan.name.includes("6") ? "6" : "1"} {plan.name.includes("6") ? "months" : "year"}</dt>
+                  <dd className="text-right text-base font-semibold text-foreground tabular-nums">{plan.totalPrice}</dd>
+                </div>
+                {plan.yearlyPrice && (
+                  <div className="flex items-baseline justify-between gap-4 pt-4 border-t border-border/80">
+                    <dt className="text-muted-foreground">1 year (same plan)</dt>
+                    <dd className="text-right text-base font-semibold text-foreground tabular-nums">{plan.yearlyPrice}</dd>
+                  </div>
+                )}
+                {plan.savings && (
+                  <div className="rounded-xl bg-primary/10 px-4 py-3 text-center">
+                    <p className="text-sm font-semibold text-primary font-heading">{plan.savings}</p>
+                    <p className="mt-0.5 text-xs text-muted-foreground">{plan.savingsDesc}</p>
+                  </div>
+                )}
+              </dl>
+
+              <ul className="mt-8 space-y-3">
+                {currentPricing.features.map((f) => (
+                  <li key={f} className="flex items-start gap-3 text-sm text-foreground font-body">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10">
+                      <CheckCircle2 className="h-4 w-4 text-primary" />
+                    </span>
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-auto pt-8">
+                <Link
+                  to="/contact"
+                  className={`inline-flex h-12 w-full items-center justify-center rounded-xl text-sm font-semibold transition-all ${
+                    plan.popular
+                      ? "bg-primary text-primary-foreground shadow-md hover:bg-primary/90 hover:shadow-lg"
+                      : "border border-border bg-background text-foreground hover:bg-secondary"
+                  }`}
+                >
+                  {plan.popular ? "Secure the annual rate" : "Get started"}
+                </Link>
+              </div>
             </div>
-            <div className="rounded-xl bg-primary/10 px-4 py-3 text-center">
-              <p className="text-sm font-semibold text-primary font-heading">Save ₹3,000 per year</p>
-              <p className="mt-0.5 text-xs text-muted-foreground">vs the 6-month plan over 12 months (₹36,000)</p>
-            </div>
-          </dl>
-
-          <ul className="mt-8 space-y-3">
-            {pricingFeatures.map((f) => (
-              <li key={f} className="flex items-start gap-3 text-sm text-foreground font-body">
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                  <CheckCircle2 className="h-4 w-4 text-primary" />
-                </span>
-                <span>{f}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-auto pt-8">
-            <Link
-              to="/contact"
-              className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-primary text-sm font-semibold text-primary-foreground shadow-md transition-all hover:bg-primary/90 hover:shadow-lg"
-            >
-              Secure the annual rate
-            </Link>
-          </div>
-        </div>
-      </Reveal>
-    </div>
-  </Section>
-);
+          </Reveal>
+        ))}
+      </div>
+    </Section>
+  );
+};
 
 const Trust = () => (
   <Section>
